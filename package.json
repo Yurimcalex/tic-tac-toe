@@ -21,8 +21,10 @@
     "vite": "^5.0.8",
     "vitest": "^1.1.1"
   },
-  "description": "<h1 align=\"center\">   Vite Template React </h1>",
-  "main": "vite.config.js",
-  "author": "",
-  "license": "ISC"
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node"
+  },
+  "resolutions": {
+    "rollup": "npm:@rollup/wasm-node"
+  }
 }
