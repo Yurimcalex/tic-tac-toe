@@ -1,9 +1,5 @@
 import './App.css';
 
-const App = () => {
-  return (
-    <div>Ok!</div>
-  );
-};
-
-export default App;
+export default function Square() {
+  return <button className='square'>X</button>;
+}
