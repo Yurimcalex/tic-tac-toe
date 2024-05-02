@@ -22,6 +22,8 @@ export default function Board({ xIsNext, squares, onPlay }) {
     status = 'Next player: ' + (xIsNext ? 'x' : 'o');
   }
 
+  if (!squares.includes(null) && !winner) status = 'Result: draw';
+
   return (
     <>
       <div className='status'>{status}</div>
