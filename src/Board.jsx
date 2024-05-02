@@ -11,7 +11,8 @@ export default function Board({ xIsNext, squares, onPlay }) {
     } else {
       nextSquares[i] = 'o';
     }
-    onPlay(nextSquares);
+  
+    onPlay(nextSquares, i);
   }
 
   const winner = calculateWinner(squares);
