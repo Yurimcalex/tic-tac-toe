@@ -13,6 +13,11 @@
   width: 34px;
 }
 
+.square.highlight {
+	background: green;
+	color: white;
+}
+
 .square:focus {
   outline: none;
 }

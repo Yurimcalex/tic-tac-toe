@@ -17,7 +17,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = 'Winner: ' + winner.symbol;
   } else {
     status = 'Next player: ' + (xIsNext ? 'x' : 'o');
   }
@@ -27,20 +27,20 @@ export default function Board({ xIsNext, squares, onPlay }) {
   return (
     <>
       <div className='status'>{status}</div>
-      {createBoard(3, 3, squares, handleClick)}
+      {createBoard(3, 3, squares, handleClick, winner?.lines)}
     </>
   );
 }
 
 
-function createBoard(rowN, colN, squares, handleClick) {
+function createBoard(rowN, colN, squares, handleClick, lines=[]) {
   const board = [];
   let counter = 0;
   for (let r = 0; r < rowN; r += 1) {
     let cols = [];
     for (let c = 0; c < colN; c += 1) {
       let ind = counter;
-      cols.push(<Square key={c} value={squares[ind]} onSquareClick={() => handleClick(ind)} />);
+      cols.push(<Square key={c} value={squares[ind]} onSquareClick={() => handleClick(ind)} highlight={lines.includes(ind)}/>);
       counter += 1;
     }
     board.push(<div key={r} className='board-row'>{cols}</div>);
@@ -63,7 +63,7 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return { lines: lines[i], symbol: squares[a] };
     }
   }
   return null;
