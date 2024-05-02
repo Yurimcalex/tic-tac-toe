@@ -6,6 +6,7 @@ import Board from './Board.jsx';
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
+  const [movesOrder, setMovesOrder] = useState('asc');
   const currentSquares = history[currentMove];
   const xIsNext = currentMove % 2 === 0;
 
@@ -19,7 +20,15 @@ export default function Game() {
     setCurrentMove(nextMove);
   }
 
-  const moves = history.map((squares, move) => {
+  function toggleMoves() {
+    if (movesOrder === 'asc') {
+      setMovesOrder('desc');
+    } else {
+      setMovesOrder('asc');
+    }
+  }
+
+  let moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
       description = 'Go to move #' + move;
@@ -35,14 +44,26 @@ export default function Game() {
     );
   });
 
+  if (movesOrder === 'desc') moves = [...moves.reverse()];
+
   return (
     <div className='game'>
       <div className='game-board'>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        <MovesOrderToggler onToggle={toggleMoves} /> 
       </div>
-      <div className='game-info'>
+      <div className='game-info'>     
         <ol>{moves}</ol>
       </div>
+    </div>
+  );
+}
+
+
+function MovesOrderToggler({ onToggle }) {
+  return (
+    <div>
+      <button onClick={onToggle}>Sort moves</button>
     </div>
   );
 }
