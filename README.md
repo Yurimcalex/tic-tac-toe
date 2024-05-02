@@ -1,4 +1,6 @@
-# React tic-tac-toe game
+# Tic-tac-toe game
+
+The Game from the react tutorial with improvements.
 
 [Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
 
