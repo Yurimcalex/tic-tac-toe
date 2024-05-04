@@ -1,6 +1,9 @@
-export default function Square({ value, onSquareClick, highlight }) {
+export default function Square({ value, onSquareClick, highlight, shade }) {
+	let className = 'square';
+	if (highlight) className += ' highlight';
+	if (shade) className += ' shade';
   return (
-    <button className={`square ${highlight ? 'highlight' : ''}`} onClick={onSquareClick}>
+    <button className={className} onClick={onSquareClick}>
       {value}
     </button>
   ); 

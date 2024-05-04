@@ -57,8 +57,11 @@
 }
 
 .square.highlight {
-	background: green;
-	color: white;
+	color: #3E753B;
+}
+
+.square.shade {
+  color: #999;
 }
 
 .square:focus {

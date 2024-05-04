@@ -36,7 +36,14 @@ function createBoard(rowN, colN, squares, handleClick, lines=[]) {
     let cols = [];
     for (let c = 0; c < colN; c += 1) {
       let ind = counter;
-      cols.push(<Square key={c} value={squares[ind]} onSquareClick={() => handleClick(ind)} highlight={lines.includes(ind)}/>);
+      cols.push(
+        <Square 
+          key={c}
+          value={squares[ind]}
+          onSquareClick={() => handleClick(ind)}
+          highlight={lines.includes(ind)}
+          shade={lines.length && !lines.includes(ind)} />
+      );
       counter += 1;
     }
     board.push(<div key={r} className='board-row'>{cols}</div>);
