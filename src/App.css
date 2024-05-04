@@ -1,3 +1,16 @@
+.game {
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  background: #ffffff;
+  box-shadow: 0px 0px 15px 8px rgba(21,21,33,0.73);
+  border-radius: 0.7em;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
 .square {
   background: #fff;
   border: 1px solid #999;
@@ -30,17 +43,4 @@
 
 .status {
   margin-bottom: 10px;
-}
-
-.game {
-  display: flex;
-  flex-direction: row;
-}
-
-.game-info {
-  margin-left: 20px;
-}
-
-ol {
-  padding-left: 30px;
 }
