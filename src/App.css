@@ -21,6 +21,12 @@
   color: #232C3F;
 }
 
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 .square {
   background: #fff;
   border: 1px solid #999;
@@ -29,11 +35,25 @@
   font-weight: bold;
   line-height: 34px;
   height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
   padding: 0;
   text-align: center;
   width: 34px;
+}
+
+.square:first-child {
+  border-left: none;
+}
+
+.square:last-child {
+  border-right: none;
+}
+
+.board-row:first-child .square {
+  border-top: none;
+}
+
+.board-row:last-child .square {
+  border-bottom: none;
 }
 
 .square.highlight {
@@ -43,10 +63,4 @@
 
 .square:focus {
   outline: none;
-}
-
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
 }

@@ -23,7 +23,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
   return (
     <>
       <Status xIsNext={xIsNext} winner={winner} squares={squares} />
-      {createBoard(3, 3, squares, handleClick, winner?.lines)}
+      <div>{createBoard(3, 3, squares, handleClick, winner?.lines)}</div>
     </>
   );
 }
