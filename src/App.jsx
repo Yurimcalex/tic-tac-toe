@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import './App.css';
 import Board from './Board.jsx';
+import History from './History.jsx';
+import './App.css';
 
 
 export default function Game() {
@@ -30,25 +31,6 @@ export default function Game() {
     }
   }
 
-  let moves = history.map((squares, move) => {
-    let description;
-    let location = cellsHistory[move];
-    if (move > 0) {
-      description = 'Go to move #' + move + ' - ' + location;
-    } else {
-      description = 'Go to game start';
-    }
-    return (
-      <li key={move}>
-        {move === currentMove && move !== 0 
-          ? 'You are at move #' + move + ' - ' + location
-          : <button onClick={() => jumpTo(move)}>{description}</button>}
-      </li>
-    );
-  });
-
-  if (movesOrder === 'desc') moves = [...moves.reverse()];
-
   return (
     <div className='game'>
       <div className='game-board'>
@@ -56,7 +38,13 @@ export default function Game() {
         <MovesOrderToggler onToggle={toggleMoves} /> 
       </div>
       <div className='game-info'>     
-        <ol>{moves}</ol>
+        <History 
+          history={history}
+          cellsHistory={cellsHistory}
+          currentMove={currentMove}
+          movesOrder={movesOrder}
+          jumpTo={jumpTo}
+        />
       </div>
     </div>
   );
