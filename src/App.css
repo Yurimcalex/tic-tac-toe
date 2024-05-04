@@ -15,6 +15,12 @@
   margin-right: 1em;
 }
 
+.status {
+  margin-bottom: 1em;
+  font-size: 0.9em;
+  color: #232C3F;
+}
+
 .square {
   background: #fff;
   border: 1px solid #999;
@@ -43,8 +49,4 @@
   clear: both;
   content: "";
   display: table;
-}
-
-.status {
-  margin-bottom: 10px;
 }
