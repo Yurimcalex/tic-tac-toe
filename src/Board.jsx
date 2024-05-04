@@ -1,4 +1,5 @@
 import Square from './Square.jsx';
+import Status from './Status.jsx';
 import { calculateWinner } from './utils.js';
 
 export default function Board({ xIsNext, squares, onPlay }) {
@@ -6,6 +7,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
     if (squares[i] || calculateWinner(squares)) {
       return;
     }
+
     const nextSquares = squares.slice();
     if (xIsNext) {
       nextSquares[i] = 'x';
@@ -17,18 +19,10 @@ export default function Board({ xIsNext, squares, onPlay }) {
   }
 
   const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = 'Winner: ' + winner.symbol;
-  } else {
-    status = 'Next player: ' + (xIsNext ? 'x' : 'o');
-  }
-
-  if (!squares.includes(null) && !winner) status = 'Result: draw';
 
   return (
     <>
-      <div className='status'>{status}</div>
+      <Status xIsNext={xIsNext} winner={winner} squares={squares} />
       {createBoard(3, 3, squares, handleClick, winner?.lines)}
     </>
   );
