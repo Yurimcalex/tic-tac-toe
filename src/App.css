@@ -94,3 +94,12 @@
 .game-info li button:hover {
   color: black;
 }
+
+.game-info > div {
+  margin-top: 1em;
+}
+
+.game-info > div button {
+  font-size: 0.9em;
+  cursor: pointer;
+}
