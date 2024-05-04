@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Board from './Board.jsx';
 import History from './History.jsx';
+import HistoryOrder from './HistoryOrder.jsx';
 import './App.css';
 
 
@@ -35,7 +36,7 @@ export default function Game() {
     <div className='game'>
       <div className='game-board'>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-        <MovesOrderToggler onToggle={toggleMoves} /> 
+        <HistoryOrder onToggle={toggleMoves} /> 
       </div>
       <div className='game-info'>     
         <History 
@@ -46,15 +47,6 @@ export default function Game() {
           jumpTo={jumpTo}
         />
       </div>
-    </div>
-  );
-}
-
-
-function MovesOrderToggler({ onToggle }) {
-  return (
-    <div>
-      <button onClick={onToggle}>Sort moves</button>
     </div>
   );
 }
