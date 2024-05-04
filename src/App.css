@@ -68,6 +68,12 @@
   margin-left: 20px;
 }
 
+.game-info ol {
+  width: 200px;
+  height: 300px;
+  border-bottom: 1px solid #999
+}
+
 .game-info li::marker {
   font-size: 0.9em;
   color: #999;
