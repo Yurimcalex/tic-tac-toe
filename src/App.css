@@ -11,6 +11,10 @@
   margin-left: 20px;
 }
 
+.game-board {
+  margin-right: 1em;
+}
+
 .square {
   background: #fff;
   border: 1px solid #999;
