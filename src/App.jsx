@@ -37,7 +37,6 @@ export default function Game() {
     <div className='game'>
       <div className='game-board'>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-        <HistoryOrder onToggle={toggleMoves} /> 
       </div>
       <div className='game-info'>     
         <History 
@@ -47,6 +46,7 @@ export default function Game() {
           movesOrder={movesOrder}
           jumpTo={jumpTo}
         />
+        <HistoryOrder onToggle={toggleMoves} />
       </div>
     </div>
   );
