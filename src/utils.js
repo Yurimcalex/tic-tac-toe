@@ -37,3 +37,24 @@ export function calcMoveLocation(currentCellInd) {
 
   return location;
 }
+
+
+function createBoard(rows, cols) {
+	const board = [];
+	const cellsNumber = rows * cols;
+	let counter = 0;
+	let line = [];
+
+	while (counter < cellsNumber) {
+		if (line.length < cols) {
+			line.push(counter++);
+		}
+		
+		if (line.length === cols) {
+			board.push(line);
+			line = [];
+		}
+	}
+
+	return board;
+}
