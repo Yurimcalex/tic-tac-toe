@@ -4,6 +4,10 @@ The Game from the react tutorial with improvements.
 
 [Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
 
+## Feature
+
+Set the number of rows and number of columns of the game board.
+
 ## Installation
 
 Vite requires [Node.js](https://nodejs.org/) v18+ to run.
