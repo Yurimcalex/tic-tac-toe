@@ -8,6 +8,7 @@ export function calculateWinner(squares, rows, cols) {
 
   for (let i = 0; i < lines.length; i++) {
     const lineStr = lines[i].map(ind => squares[ind]).join('');
+    //console.log(lineStr, lines[i], squares);
     if (lineStr.includes(winnerX)) {
     	symbol = 'x';
     } else if (lineStr.includes(winnerO)) {
@@ -75,7 +76,7 @@ function getBoardLines(board, rows, cols) {
 	loop: for (let c = 0, ind = 0; c < cols; c += 1) {
 		const line1 = [], line2 = [];
 		for (let r = 0; r < rows; r += 1) {
-			if (board[r][r + ind] === undefined) continue loop;
+			//if (board[r][r + ind] === undefined) continue loop;
 			line1.push(board[r][r + ind]);
 			line2.push([...board[r]].reverse()[r + ind]);
 		}
