@@ -10,6 +10,7 @@ import './App.css';
 export default function Game() {
   const [rows, setRows] = useState(3);
   const [cols, setCols] = useState(3);
+  const [cells, setCells] = useState(3);
   const [history, setHistory] = useState([Array(rows * cols).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const [movesOrder, setMovesOrder] = useState('asc');
@@ -47,6 +48,10 @@ export default function Game() {
     reset(rows, +e.target.value);
   }
 
+  function changeCells(e) {
+    setCells(+e.target.value);
+  }
+
   function reset(rows, cols) {
     setCurrentMove(0);
     setHistory([Array(rows * cols).fill(null)]);
@@ -62,8 +67,15 @@ export default function Game() {
           onPlay={handlePlay}
           rows={rows}
           cols={cols}
+          cells={cells}
         />
-        <Controls rows={rows} cols={cols} changeRows={changeRows} changeCols={changeCols} />
+        <Controls
+          rows={rows}
+          cols={cols}
+          cells={cells}
+          changeRows={changeRows}
+          changeCols={changeCols}
+          changeCells={changeCells} />
       </div>
       <div className='game-info'>     
         <History 

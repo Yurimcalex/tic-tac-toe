@@ -2,9 +2,9 @@ import Square from './Square.jsx';
 import Status from './Status.jsx';
 import { calculateWinner } from './utils.js';
 
-export default function Board({ xIsNext, squares, onPlay, rows, cols }) {
+export default function Board({ xIsNext, squares, onPlay, rows, cols, cells }) {
   function handleClick(i) {
-    if (squares[i] || calculateWinner(squares, rows, cols)) {
+    if (squares[i] || calculateWinner(squares, rows, cols, cells)) {
       return;
     }
 
@@ -18,7 +18,7 @@ export default function Board({ xIsNext, squares, onPlay, rows, cols }) {
     onPlay(nextSquares, i);
   }
 
-  const winner = calculateWinner(squares, rows, cols);
+  const winner = calculateWinner(squares, rows, cols, cells);
 
   return (
     <>

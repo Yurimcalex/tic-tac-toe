@@ -1,10 +1,9 @@
-export function calculateWinner(squares, rows, cols) {
+export function calculateWinner(squares, rows, cols, cells) {
 	const board = createBoard(rows, cols);
   const lines = getBoardLines(board, rows, cols);
-  const lineLenght = Math.min(rows, cols);
 
-  const winnerX = 'x'.repeat(lineLenght);
-  const winnerO = 'o'.repeat(lineLenght);
+  const winnerX = 'x'.repeat(cells);
+  const winnerO = 'o'.repeat(cells);
   let symbol = '';
 
   for (let i = 0; i < lines.length; i++) {

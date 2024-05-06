@@ -108,6 +108,7 @@
 }
 
 .controls {
+  width: 100%;
   align-self: flex-end;
   margin-top: auto;
   color: #232C3F;
@@ -125,6 +126,10 @@
 }
 
 .controls p + div {
+  margin-bottom: 1em;
+}
+
+.controls p + div + div {
   float: left;
   margin-right: 1em;
 }
