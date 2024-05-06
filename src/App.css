@@ -8,6 +8,8 @@
 }
 
 .game-board {
+  display: flex;
+  flex-direction: column;
   margin-right: 1em;
 }
 
@@ -106,6 +108,7 @@
 }
 
 .controls {
+  align-self: flex-end;
   margin-top: auto;
   color: #232C3F;
   font-size: 0.9em;
