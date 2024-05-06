@@ -50,6 +50,7 @@ export default function Game() {
 
   function changeCells(e) {
     setCells(+e.target.value);
+    //reset(rows, cols);
   }
 
   function reset(rows, cols) {

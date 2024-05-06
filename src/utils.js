@@ -7,8 +7,7 @@ export function calculateWinner(squares, rows, cols, cells) {
   let symbol = '';
 
   for (let i = 0; i < lines.length; i++) {
-    const lineStr = lines[i].map(ind => squares[ind]).join('');
-    //console.log(lineStr, lines[i], squares);
+    const lineStr = lines[i].map(ind => squares[ind] || '-').join('');
     if (lineStr.includes(winnerX)) {
     	symbol = 'x';
     } else if (lineStr.includes(winnerO)) {
