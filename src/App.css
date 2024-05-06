@@ -112,7 +112,13 @@
 }
 
 .controls p {
+  margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.controls p strong {
+  font-size: 1em;
+  color: #3E753B;
 }
 
 .controls p + div {
