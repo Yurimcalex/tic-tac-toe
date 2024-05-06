@@ -69,7 +69,8 @@
 }
 
 .game-info ol {
-  width: 200px;
+  overflow: auto;
+  width: 230px;
   height: 300px;
   border-bottom: 1px solid #999
 }
