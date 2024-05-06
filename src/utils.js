@@ -1,11 +1,21 @@
 export function calculateWinner(squares, rows, cols) {
 	const board = createBoard(rows, cols);
   const lines = getBoardLines(board, rows, cols);
-  
+
+  const winnerX = 'xxx';
+  const winnerO = 'ooo';
+  let symbol = '';
+
   for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return { lines: lines[i], symbol: squares[a] };
+    const lineStr = lines[i].map(ind => squares[ind]).join('');
+    if (lineStr.includes(winnerX)) {
+    	symbol = 'x';
+    } else if (lineStr.includes(winnerO)) {
+    	symbol = 'o';
+    }
+
+    if (symbol) {
+    	return { lines: lines[i], symbol: symbol };
     }
   }
   return null;
