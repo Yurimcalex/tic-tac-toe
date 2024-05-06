@@ -49,7 +49,7 @@ function createBoard(rows, cols) {
 		if (line.length < cols) {
 			line.push(counter++);
 		}
-		
+
 		if (line.length === cols) {
 			board.push(line);
 			line = [];
@@ -57,4 +57,32 @@ function createBoard(rows, cols) {
 	}
 
 	return board;
+}
+
+
+function getBoardLines(board, rows, cols) {
+	const horizontal = [...board];
+
+	const vertical = [];
+	for (let c = 0; c < cols; c += 1) {
+		const line = [];
+		for (let r = 0; r < rows; r += 1) {
+			line.push(board[r][c]);
+		}
+		vertical.push(line);
+	}
+
+	const diagonal = [];
+	loop: for (let c = 0, ind = 0; c < cols; c += 1) {
+		const line1 = [], line2 = [];
+		for (let r = 0; r < rows; r += 1) {
+			if (board[r][r + ind] === undefined) continue loop;
+			line1.push(board[r][r + ind]);
+			line2.push([...board[r]].reverse()[r + ind]);
+		}
+		ind += 1;
+		diagonal.push(line1, line2);
+	}
+
+	return [...horizontal, ...vertical, ...diagonal];
 }
