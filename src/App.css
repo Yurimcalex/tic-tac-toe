@@ -103,3 +103,22 @@
   font-size: 0.9em;
   cursor: pointer;
 }
+
+.controls {
+  margin-top: auto;
+  color: #232C3F;
+  font-size: 0.9em;
+}
+
+.controls p {
+  margin-bottom: 1em;
+}
+
+.controls p + div {
+  float: left;
+  margin-right: 1em;
+}
+ 
+.controls input {
+  width: 2.3em;
+}
