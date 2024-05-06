@@ -39,15 +39,15 @@ export default function Game() {
 
   function changeRows(e) {
     setRows(+e.target.value);
-    reset();
+    reset(+e.target.value, cols);
   }
 
   function changeCols(e) {
     setCols(+e.target.value);
-    reset();
+    reset(rows, +e.target.value);
   }
 
-  function reset() {
+  function reset(rows, cols) {
     setCurrentMove(0);
     setHistory([Array(rows * cols).fill(null)]);
     setCellsHistory([[]]);
