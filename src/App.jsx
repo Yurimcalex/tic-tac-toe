@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Board from './Board.jsx';
 import History from './History.jsx';
 import HistoryOrder from './HistoryOrder.jsx';
+import Controls from './Controls.jsx';
 import { calcMoveLocation } from './utils.js';
 import './App.css';
 
@@ -36,6 +37,22 @@ export default function Game() {
     }
   }
 
+  function changeRows(e) {
+    setRows(+e.target.value);
+    reset();
+  }
+
+  function changeCols(e) {
+    setCols(+e.target.value);
+    reset();
+  }
+
+  function reset() {
+    setCurrentMove(0);
+    setHistory([Array(rows * cols).fill(null)]);
+    setCellsHistory([[]]);
+  }
+
   return (
     <div className='game'>
       <div className='game-board'>
@@ -46,6 +63,7 @@ export default function Game() {
           rows={rows}
           cols={cols}
         />
+        <Controls rows={rows} cols={cols} changeRows={changeRows} changeCols={changeCols} />
       </div>
       <div className='game-info'>     
         <History 
